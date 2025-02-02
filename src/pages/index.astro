@@ -16,20 +16,22 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
     <div id="home" class="block">
       <!-- Hero Section -->
       <section id="hero" class="relative min-h-screen flex items-center justify-center py-12 sm:py-16 md:py-20 lg:py-24">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div class="w-full max-w-[90%] sm:max-w-[85%] md:max-w-[80%] mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <!-- Left Column - Content -->
-            <div class="order-2 md:order-1 text-center md:text-left space-y-3 sm:space-y-4 md:space-y-6 mt-2 sm:mt-4 md:mt-0">
-              <div class="inline-block px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-blue-400 text-sm font-medium">
-                Welcome to my portfolio
+            <div class="order-2 md:order-1 flex flex-col items-center md:items-start space-y-6">
+              <div class="w-full text-center md:text-left">
+                <div class="inline-block px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-blue-400 text-sm font-medium">
+                  Welcome to my portfolio
+                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mt-4">
+                  Diganto Deb Barma
+                </h1>
               </div>
 
-              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
-                Diganto Deb Barma
-              </h1>
-
-              <!-- Role Tags in Hero Section -->
-              <div class="flex flex-wrap gap-2 sm:gap-3 justify-center md:justify-start">
+              <!-- Role Tags -->
+              <div class="flex flex-wrap gap-2 justify-center md:justify-start w-full">
                 <span class="px-4 py-2 bg-white/90 dark:bg-gray-800/90 text-primary dark:text-blue-400 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300">
                   ML Engineer
                 </span>
@@ -44,12 +46,13 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
                 </span>
               </div>
 
-              <p class="text-base sm:text-lg md:text-xl leading-relaxed max-w-prose mx-auto md:mx-0 text-center md:text-left">
+              <!-- Description -->
+              <p class="text-base sm:text-lg md:text-xl text-center md:text-left max-w-[90%] md:max-w-full">
                 Full-stack AI developer combining machine learning expertise with robust engineering practices. Experience spans from building LLM-powered knowledge graph systems to developing production-ready AI services in enterprise environments. Skilled in end-to-end ML pipeline development, from data processing to deployment, using Python, React, FastAPI, and cloud services. Strong foundation in both theoretical AI concepts and practical implementation, with a focus on creating user-centric AI solutions.
               </p>
 
               <!-- Call to Action -->
-              <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start w-full">
                 <a 
                   href="#contact" 
                   class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors duration-300"
@@ -69,7 +72,7 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
             </div>
 
             <!-- Right Column - Profile Image -->
-            <div class="order-1 md:order-2 flex justify-center md:justify-end mb-4 md:mb-0 relative">
+            <div class="order-1 md:order-2 flex justify-center">
               <!-- Enhanced sparkles container around profile -->
               <div class="absolute -inset-16 pointer-events-none overflow-hidden">
                 <!-- Medium sparkles -->
@@ -530,29 +533,28 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
 
       <!-- Home Section Projects -->
       <section id="projects" class="py-16 sm:py-20 md:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="w-full max-w-[90%] sm:max-w-[85%] md:max-w-[80%] mx-auto px-4">
           <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Featured Projects</h2>
-          
-          <div class="space-y-6 sm:space-y-8">
+          <div class="grid grid-cols-1 gap-8">
             <!-- Project Cards -->
-            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-4 sm:p-6 md:p-8">
+            <div class="flex flex-col items-center gap-8">
               <!-- Project 1 -->
-              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8 text-center sm:text-left" data-aos="fade-up">
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8" data-aos="fade-up">
                 <h3 class="text-xl font-semibold text-primary mb-4">Leveraging LLM for Ontology-Driven Knowledge Graph Querying: A Multilingual Perspective</h3>
                 <p class="text-gray-600 dark:text-gray-400 mb-4">
                   <a href="https://www.faps.fau.de/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors">
-                    FAPS, FAU
+                FAPS, FAU
               </a>
             </p>
                 
                 <ul class="space-y-3 mb-6 bullet-list">
                   <li>
                     <span class="bullet-point">•</span>
-                    <span class="bullet-text">Built a solution enabling users to interact with knowledge graphs using natural language questions without requiring SPARQL expertise.</span>
+                    <span class="bullet-text">Designed an intuitive interface that enables users to query a knowledge graph using everyday language—eliminating the need to learn SPARQL.</span>
                   </li>
                   <li>
                     <span class="bullet-point">•</span>
-                    <span class="bullet-text">Integrated large language models for seamless multilingual query handling and knowledge extraction.</span>
+                    <span class="bullet-text">Implemented LLM to automatically convert natural language queries into accurate SPARQL queries, ensuring efficient and context-aware data retrieval.</span>
                   </li>
                 </ul>
 
@@ -566,7 +568,7 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
               </div>
 
               <!-- Project 2 -->
-              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8 text-center sm:text-left" data-aos="fade-up">
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8" data-aos="fade-up">
                 <h3 class="text-xl font-semibold text-primary mb-4">AI-Enhanced Online Shopping Experience</h3>
                 <p class="text-gray-600 dark:text-gray-400 mb-4">
                   <a href="https://www.mad.tf.fau.de/teaching/innolab/discov/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors">
@@ -594,8 +596,7 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
                 </div>
               </div>
 
-              <!-- Project 3 -->
-              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 text-center sm:text-left" data-aos="fade-up">
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800" data-aos="fade-up">
                 <div class="flex items-center justify-between mb-4">
                   <h3 class="text-xl font-semibold text-primary">Personal Portfolio Website</h3>
                   <div class="flex items-center gap-4">
@@ -791,14 +792,13 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
 
       <!-- Experience Section -->
       <section id="experience" class="py-16 sm:py-20 md:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="w-full max-w-[90%] sm:max-w-[85%] md:max-w-[80%] mx-auto px-4">
           <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Experience</h2>
-          
-          <div class="space-y-6 sm:space-y-8">
+          <div class="grid grid-cols-1 gap-8">
             <!-- Experience Cards -->
-            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-4 sm:p-6 md:p-8">
+            <div class="flex flex-col items-center gap-8">
               <!-- Working Student - Machine Learning -->
-              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8 text-center sm:text-left" data-aos="fade-up">
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8" data-aos="fade-up">
                 <div class="flex flex-col md:flex-row justify-between mb-4">
                   <div>
                     <h3 class="text-xl font-semibold text-primary">Working Student - Machine Learning</h3>
@@ -833,7 +833,7 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
               </div>
 
               <!-- Working Student - Data Analytics -->
-              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8 text-center sm:text-left" data-aos="fade-up">
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8" data-aos="fade-up">
                 <div class="flex flex-col md:flex-row justify-between mb-4">
                   <div>
                     <h3 class="text-xl font-semibold text-primary">Working Student - Data Analytics</h3>
@@ -1454,7 +1454,7 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
 <style>
   @media (max-width: 768px) {
     .bullet-list li {
-      @apply flex-col items-center;
+      @apply flex-col items-center text-center;
     }
     
     .bullet-point {
@@ -1462,6 +1462,16 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
     }
     
     .bullet-text {
+      @apply text-center w-full max-w-[90%];
+    }
+
+    /* Center all flex items on mobile */
+    [class*='flex'] {
+      @apply justify-center;
+    }
+
+    /* Center all text on mobile */
+    [class*='text-'] {
       @apply text-center;
     }
   }
