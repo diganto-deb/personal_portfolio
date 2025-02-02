@@ -1,0 +1,1323 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+const EMAILJS_SERVICE_ID = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+---
+
+<Layout title="Diganto Deb Barma - Portfolio">
+  <main>
+   
+    <!-- Base background pattern for the whole page -->
+    <div class="fixed inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px] opacity-20 pointer-events-none"></div>
+
+    <!-- Home Section (Hero + Skills + Projects) -->
+    <div id="home" class="block">
+      <!-- Hero Section -->
+      <section id="hero" class="relative min-h-screen flex items-center justify-center py-12 sm:py-16 md:py-20 lg:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <!-- Left Column - Content -->
+            <div class="order-2 md:order-1 text-center md:text-left space-y-3 sm:space-y-4 md:space-y-6 mt-2 sm:mt-4 md:mt-0"> <!-- Adjusted spacing -->
+              <div class="inline-block px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-blue-400 text-sm font-medium">
+                Welcome to my portfolio
+              </div>
+
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
+                Diganto Deb Barma
+              </h1>
+
+              <!-- Role Tags in Hero Section -->
+              <div class="flex flex-wrap gap-2 sm:gap-3 justify-center md:justify-start">
+                <span class="px-4 py-2 bg-white/90 dark:bg-gray-800/90 text-primary dark:text-blue-400 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300">
+                  ML Engineer
+                </span>
+                <span class="px-4 py-2 bg-white/90 dark:bg-gray-800/90 text-primary dark:text-blue-400 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300">
+                  GenAI
+                </span>
+                <span class="px-4 py-2 bg-white/90 dark:bg-gray-800/90 text-primary dark:text-blue-400 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300">
+                  Data Analyst
+                </span>
+                <span class="px-4 py-2 bg-white/90 dark:bg-gray-800/90 text-primary dark:text-blue-400 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300">
+                  Full Stack Developer
+                </span>
+              </div>
+
+              <p class="text-base sm:text-lg md:text-xl leading-relaxed max-w-prose mx-auto md:mx-0">
+                Full-stack AI developer combining machine learning expertise with robust engineering practices. Experience spans from building LLM-powered knowledge graph systems to developing production-ready AI services in enterprise environments. Skilled in end-to-end ML pipeline development, from data processing to deployment, using Python, React, FastAPI, and cloud services. Strong foundation in both theoretical AI concepts and practical implementation, with a focus on creating user-centric AI solutions.
+              </p>
+
+              <!-- Call to Action -->
+              <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <a 
+                  href="#contact" 
+                  class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors duration-300"
+                >
+                  <span>Get in Touch</span>
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+                <a 
+                  href="#projects" 
+                  class="inline-flex items-center px-6 py-3 border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300"
+                >
+                  View Projects
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Column - Profile Image -->
+            <div class="order-1 md:order-2 flex justify-center md:justify-end mb-4 md:mb-0 relative">
+              <!-- Enhanced sparkles container around profile -->
+              <div class="absolute -inset-16 pointer-events-none overflow-hidden">
+                <!-- Medium sparkles -->
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <div
+                    class="absolute w-2 h-2 bg-primary/20 rounded-full animate-sparkle"
+                    style={{
+                      top: `${20 + Math.random() * 60}%`,
+                      left: `${Math.random() * 100}%`,
+                      animationDelay: `${Math.random() * 3}s`,
+                      animationDuration: `${3 + Math.random() * 2}s`,
+                      transform: `scale(${0.8 + Math.random() * 0.5})`
+                    }}
+                  />
+                ))}
+                
+                <!-- Small sparkles -->
+                {Array.from({ length: 18 }).map((_, i) => (
+                  <div
+                    class="absolute w-1 h-1 bg-blue-400/30 rounded-full animate-sparkle-small"
+                    style={{
+                      top: `${Math.random() * 100}%`,
+                      left: `${Math.random() * 100}%`,
+                      animationDelay: `${Math.random() * 4}s`,
+                      animationDuration: `${2 + Math.random() * 3}s`,
+                      transform: `scale(${0.5 + Math.random() * 0.5})`
+                    }}
+                  />
+                ))}
+
+                <!-- Tiny sparkles -->
+                {Array.from({ length: 10 }).map((_, i) => (
+                  <div
+                    class="absolute w-0.5 h-0.5 bg-white/40 rounded-full animate-sparkle-tiny"
+                    style={{
+                      top: `${Math.random() * 100}%`,
+                      left: `${Math.random() * 100}%`,
+                      animationDelay: `${Math.random() * 5}s`,
+                      animationDuration: `${1.5 + Math.random() * 2}s`
+                    }}
+                  />
+                ))}
+              </div>
+
+              <div class="overflow-hidden pt-24 sm:pt-20 -mt-16 mb-4 sm:mb-8">
+                <div class="relative w-24 h-24 xs:w-28 xs:h-28 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56">
+                  <!-- Main image container -->
+                  <div class="relative rounded-full overflow-hidden z-10">
+                    <img 
+                      src="https://avatars.githubusercontent.com/diganto-deb" 
+                      alt="Diganto Deb Barma" 
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        import * as THREE from 'three';
+
+        // Set up scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ 
+          alpha: true,
+          antialias: true,
+          powerPreference: "high-performance"
+        });
+        
+        const heroBackground = document.getElementById('hero-background');
+        if (heroBackground) {
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          renderer.setPixelRatio(window.devicePixelRatio);
+          heroBackground.appendChild(renderer.domElement);
+        }
+
+        // Create particles
+        const particlesCount = 1000;
+        const positions = new Float32Array(particlesCount * 3);
+        
+        for(let i = 0; i < particlesCount * 3; i += 3) {
+          positions[i] = (Math.random() - 0.5) * 50;
+          positions[i + 1] = (Math.random() - 0.5) * 50;
+          positions[i + 2] = (Math.random() - 0.5) * 50;
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        const material = new THREE.PointsMaterial({
+          size: 0.2,
+          color: 0x3B82F6,
+          transparent: true,
+          opacity: 0.8,
+          sizeAttenuation: true
+        });
+
+        const particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+
+        // Add some connecting lines
+        const linesMaterial = new THREE.LineBasicMaterial({
+          color: 0x3B82F6,
+          transparent: true,
+          opacity: 0.3
+        });
+
+        const linesGeometry = new THREE.BufferGeometry();
+        const linePositions = [];
+        
+        // Create connecting lines between nearby particles
+        for(let i = 0; i < positions.length; i += 3) {
+          for(let j = i + 3; j < positions.length; j += 3) {
+            const distance = Math.sqrt(
+              Math.pow(positions[i] - positions[j], 2) +
+              Math.pow(positions[i + 1] - positions[j + 1], 2) +
+              Math.pow(positions[i + 2] - positions[j + 2], 2)
+            );
+            
+            if(distance < 5) {
+              linePositions.push(positions[i], positions[i + 1], positions[i + 2]);
+              linePositions.push(positions[j], positions[j + 1], positions[j + 2]);
+            }
+          }
+        }
+
+        linesGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+        const lines = new THREE.LineSegments(linesGeometry, linesMaterial);
+        scene.add(lines);
+
+        // Position camera
+        camera.position.z = 30;
+
+        // Mouse interaction
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (event) => {
+          mouseX = (event.clientX - window.innerWidth / 2) * 0.001;
+          mouseY = (event.clientY - window.innerHeight / 2) * 0.001;
+        });
+
+        // Animation
+        function animate() {
+          requestAnimationFrame(animate);
+
+          particles.rotation.x += 0.001;
+          particles.rotation.y += 0.001;
+          lines.rotation.x += 0.001;
+          lines.rotation.y += 0.001;
+
+          camera.position.x += (mouseX - camera.position.x) * 0.05;
+          camera.position.y += (-mouseY - camera.position.y) * 0.05;
+          camera.lookAt(scene.position);
+
+          renderer.render(scene, camera);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+          if (heroBackground) {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+          }
+        });
+
+        // Update colors based on theme
+        function updateColors() {
+          const isDark = document.documentElement.classList.contains('dark');
+          const color = isDark ? 0x3B82F6 : 0x2563eb;
+          material.color.setHex(color);
+          linesMaterial.color.setHex(color);
+        }
+
+        // Watch for theme changes
+        const observer = new MutationObserver(() => {
+          updateColors();
+        });
+
+        observer.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ['class']
+        });
+
+        updateColors();
+        animate();
+      </script>
+
+      <style>
+        @keyframes spin-slow {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
+        }
+
+        @keyframes float {
+          0% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+          100% {
+            transform: translateY(0px);
+          }
+        }
+
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes spin-fast {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        
+        @keyframes pulse-fast {
+          0%, 100% {
+            opacity: 0.5;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.8;
+            transform: scale(1.1);
+          }
+        }
+        
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+        
+        .animate-spin-slow {
+          animation: spin-fast 8s linear infinite;
+        }
+        
+        .group:hover .animate-spin-fast {
+          animation: spin-fast 4s linear infinite;
+        }
+        
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+
+        /* New staggered float animations */
+        @keyframes float-slow {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          50% { transform: translate(5px, -10px) rotate(5deg); }
+        }
+
+        .animate-float-slow {
+          animation: float-slow 6s ease-in-out infinite;
+        }
+
+        .animate-float-delay-1 {
+          animation: float-slow 7s ease-in-out infinite;
+          animation-delay: 1s;
+        }
+
+        .animate-float-delay-2 {
+          animation: float-slow 8s ease-in-out infinite;
+          animation-delay: 2s;
+        }
+
+        .animate-float-delay-3 {
+          animation: float-slow 9s ease-in-out infinite;
+          animation-delay: 3s;
+        }
+
+        .animate-float-delay-4 {
+          animation: float-slow 10s ease-in-out infinite;
+          animation-delay: 4s;
+        }
+
+        /* Particle hover effects */
+        .group:hover .animate-float-slow,
+        .group:hover .animate-float-delay-1,
+        .group:hover .animate-float-delay-2,
+        .group:hover .animate-float-delay-3,
+        .group:hover .animate-float-delay-4 {
+          animation-duration: 3s;
+          transform: scale(1.2);
+        }
+
+        /* Add sparkle animations */
+        @keyframes sparkle {
+          0%, 100% { transform: scale(0) rotate(0deg); opacity: 0; }
+          50% { transform: scale(1) rotate(180deg); opacity: 0.6; }
+        }
+
+        @keyframes sparkle-small {
+          0%, 100% { transform: scale(0) rotate(0deg); opacity: 0; }
+          50% { transform: scale(1.2) rotate(360deg); opacity: 0.4; }
+        }
+        
+        @keyframes sparkle-tiny {
+          0%, 100% { transform: scale(0) rotate(0deg); opacity: 0; }
+          50% { transform: scale(1.5) rotate(540deg); opacity: 0.3; }
+        }
+
+        .animate-sparkle {
+          animation: sparkle 4s ease-in-out infinite;
+        }
+        
+        .animate-sparkle-small {
+          animation: sparkle-small 3s ease-in-out infinite;
+        }
+        
+        .animate-sparkle-tiny {
+          animation: sparkle-tiny 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.3; transform: scale(1); }
+          50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        .animate-pulse-slow {
+          animation: pulse-slow 4s ease-in-out infinite;
+        }
+      </style>
+
+      <!-- Skills Section -->
+      <section id="skills" class="py-16 sm:py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-4xl font-bold text-gray-900 dark:text-white text-center mb-16">Skills & Expertise</h2>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <!-- AI & Machine Learning -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">AI & Machine Learning</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                {['Deep Learning', 'Reinforcement Learning', 'Transfer Learning', 'Explainable ML', 'Pattern Recognition', 'Time Series Analysis', 'Large Language Models (LLMs)'].map(skill => (
+                  <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Cloud & MLOps -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Cloud & MLOps</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">AWS</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Docker</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Git</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">CI/CD</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">S3</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">EC2</span>
+              </div>
+            </div>
+
+            <!-- Programming -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Programming</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Python</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">SQL</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">JavaScript</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Bash</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">SPARQL</span>
+              </div>
+            </div>
+
+            <!-- Data Analysis -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Data Analysis</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Power BI</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">DataBricks</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Pandas</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">NumPy</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Matplotlib</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">SQL</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">ETL</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Apace Spark</span>
+              </div>
+            </div>
+
+            <!-- Data Science -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Data Science</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Feture Engineering</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Clustering</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Dimensionality Reduction</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Class Imbalance</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Regularization</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Predictive Modeling</span>
+              </div>
+        </div>
+
+            <!-- Full Stack -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Full Stack</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">React</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Tailwind CSS</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">HTML</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">CSS</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">FastAPI</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">MongoDB</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">PostgreSQL</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">MySQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Home Section Projects -->
+      <section id="projects" class="py-16 sm:py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Featured Projects</h2>
+          
+          <div class="space-y-6 sm:space-y-8">
+            <!-- Project Cards -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-4 sm:p-6 md:p-8">
+              <!-- Project 1 -->
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8" data-aos="fade-up">
+                <h3 class="text-xl font-semibold text-primary mb-4">Leveraging LLM for Ontology-Driven Knowledge Graph Querying: A Multilingual Perspective</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                  <a href="https://www.faps.fau.de/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors">
+                    FAPS, FAU
+              </a>
+            </p>
+                
+                <ul class="space-y-3 mb-6 bullet-list">
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Built a solution enabling users to interact with knowledge graphs using natural language questions without requiring SPARQL expertise.</span>
+                  </li>
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Integrated large language models for seamless multilingual query handling and knowledge extraction.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2 sm:gap-3">
+                  {['Python', 'LangChain', 'Neo4j', 'FastAPI', 'React', 'Docker'].map(tech => (
+                    <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Project 2 -->
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800" data-aos="fade-up">
+                <h3 class="text-xl font-semibold text-primary mb-4">AI-Enhanced Online Shopping Experience</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                  <a href="https://www.mad.tf.fau.de/teaching/innolab/discov/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors">
+                    InnoLab (FAU) & RE-INvent Retail GmbH
+                  </a>
+                </p>
+                
+                <ul class="space-y-3 mb-6 bullet-list">
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Designed machine learning pipelines to validate and enhance product descriptions.</span>
+                  </li>
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Increased product discoverability by 20%, improving user engagement.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2 sm:gap-3">
+                  {['Python', 'Pandas', 'LLM', 'RAG', 'LangChain', 'DataBricks'].map(tech => (
+                    <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="hidden">
+      <section class="py-16 sm:py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Professional Summary -->
+          <div class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">Professional Summary</h2>
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 hover:scale-[1.02] transition-all duration-300">
+              <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                Full-stack AI developer combining machine learning expertise with robust engineering practices. Experience spans from building LLM-powered knowledge graph systems to developing production-ready AI services in enterprise environments. Skilled in end-to-end ML pipeline development, from data processing to deployment, using Python, React, FastAPI, and cloud services. Strong foundation in both theoretical AI concepts and practical implementation, with a focus on creating user-centric AI solutions.
+              </p>
+            </div>
+          </div>
+
+          <!-- Skills & Expertise Section -->
+          <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Skills & Expertise</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <!-- AI & Machine Learning -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">AI & Machine Learning</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                {['Deep Learning', 'Reinforcement Learning', 'Transfer Learning', 'Explainable ML', 'Pattern Recognition', 'Time Series Analysis', 'Large Language Models (LLMs)'].map(skill => (
+                  <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Cloud & MLOps -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Cloud & MLOps</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">AWS</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Docker</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Git</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">CI/CD</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">S3</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">EC2</span>
+              </div>
+            </div>
+
+            <!-- Programming -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Programming</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Python</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">SQL</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">JavaScript</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Bash</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">SPARQL</span>
+              </div>
+            </div>
+
+            <!-- Data Analysis -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Data Analysis</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Power BI</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">DataBricks</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Pandas</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">NumPy</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Matplotlib</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">SQL</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">ETL</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Apace Spark</span>
+              </div>
+            </div>
+
+            <!-- Data Science -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Data Science</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Feture Engineering</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Clustering</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Dimensionality Reduction</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Class Imbalance</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Regularization</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Predictive Modeling</span>
+              </div>
+            </div>
+
+            <!-- Full Stack -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 hover:scale-105 transition-all duration-300 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Full Stack</h3>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">React</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">Tailwind CSS</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">HTML</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">CSS</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">FastAPI</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">MongoDB</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">PostgreSQL</span>
+                <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">MySQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="py-16 sm:py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Experience</h2>
+          
+          <div class="space-y-6 sm:space-y-8">
+            <!-- Experience Cards -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-4 sm:p-6 md:p-8">
+              <!-- Working Student - Machine Learning -->
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row justify-between mb-4">
+                  <div>
+                    <h3 class="text-xl font-semibold text-primary">Working Student - Machine Learning</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                      <a href="https://www.iee.fraunhofer.de/en.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors">
+                        Fraunhofer IEE
+                      </a>
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400">Kassel, Germany</p>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-400 mt-2 md:mt-0">Sep 2024 - Present</p>
+                </div>
+                
+                <ul class="space-y-3 mb-6 bullet-list">
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Optimized machine learning models for heat pump systems using transfer learning strategies under data constraints.</span>
+                  </li>
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Refined reward function formulations to improve cost efficiency and energy consumption.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2 sm:gap-3">
+                  {['Python', 'PyTorch', 'Git', 'Data Analysis', 'Reinforcement Learning', 'Time Series Analysis', 'Machine Learning', 'Transfer Learning'].map(tech => (
+                    <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Working Student - Data Analytics -->
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row justify-between mb-4">
+                  <div>
+                    <h3 class="text-xl font-semibold text-primary">Working Student - Data Analytics</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                      <a href="https://www.siemens.com/global/en.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors">
+                        Siemens AG
+                      </a>
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400">Erlangen, Germany</p>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-400 mt-2 md:mt-0">Nov 2022 - Aug 2024</p>
+                </div>
+                
+                <ul class="space-y-3 mb-6 bullet-list">
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Built AI services leveraging large language models (LLM) to automate user interactions and enhance operational workflows</span>
+                  </li>
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Developed and maintained Power BI dashboards for data visualization, facilitating data-driven decision-making processes.</span>
+                  </li>
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Implemented CI/CD pipelines to ensure secure and efficient application deployments.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2 sm:gap-3">
+                  {['Python', 'Power BI', 'SQL', 'ETL', 'LLM', 'Data Analysis', 'Data Visualization', 'Machine Learning'].map(tech => (
+                    <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Evertz Microsystems Experience -->
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row justify-between mb-4">
+                  <div>
+                    <h3 class="text-xl font-semibold text-primary">Student Project Engineer (Internship)</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                      <a href="https://evertz.com/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors">
+                        Evertz Microsystems
+                      </a>
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400">Bengaluru, Karnataka, India</p>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-400 mt-2 md:mt-0">Jan 2020 - May 2020</p>
+          </div>
+          
+                <ul class="space-y-3 mb-6 bullet-list">
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Refactored the Employee Management Dashboard by implementing modern design principles, resulting in improved usability and efficiency.</span>
+                  </li>
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Enhanced data processing workflows by developing Python scripts and SQL queries, achieving a 20% increase in operational efficiency.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2 sm:gap-3">
+                  {['Python', 'MySQL', 'Bash', 'Linux', 'JavaScript', 'React', 'SQL'].map(tech => (
+                    <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects-about" class="py-16 sm:py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Projects</h2>
+          
+          <div class="space-y-6 sm:space-y-8">
+            <!-- Project Cards -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-4 sm:p-6 md:p-8">
+              <!-- Project 1 -->
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8" data-aos="fade-up">
+                <h3 class="text-xl font-semibold text-primary mb-4">Leveraging LLM for Ontology-Driven Knowledge Graph Querying: A Multilingual Perspective</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                  <a href="https://www.faps.fau.de/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors">
+                FAPS, FAU
+              </a>
+            </p>
+                
+                <ul class="space-y-3 mb-6 bullet-list">
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Designed an intuitive interface that enables users to query a knowledge graph using everyday language—eliminating the need to learn SPARQL.</span>
+                  </li>
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Implemented LLM to automatically convert natural language queries into accurate SPARQL queries, ensuring efficient and context-aware data retrieval.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2 sm:gap-3">
+                  {['Python', 'LangChain', 'Neo4j', 'FastAPI', 'React', 'Docker'].map(tech => (
+                    <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Project 2 -->
+              <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800" data-aos="fade-up">
+                <h3 class="text-xl font-semibold text-primary mb-4">AI-Enhanced Online Shopping Experience</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">
+                  <a href="https://www.mad.tf.fau.de/teaching/innolab/discov/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors">
+                    InnoLab (FAU) & RE-INvent Retail GmbH
+                  </a>
+                </p>
+                
+                <ul class="space-y-3 mb-6 bullet-list">
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Tested and validated LLM-generated product descriptions by replacing existing production descriptions, resulting in a 20% increase in product discoverability.</span>
+                  </li>
+                  <li>
+                    <span class="bullet-point">•</span>
+                    <span class="bullet-text">Collaborated with the production team to integrate improved descriptions seamlessly into the existing front-end environment, ensuring continuity and enhanced user engagement.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2 sm:gap-3">
+                  {['Python', 'Pandas', 'LLM', 'RAG', 'LangChain', 'DataBricks'].map(tech => (
+                    <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="py-16 sm:py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Education</h2>
+          
+          <div class="space-y-6 sm:space-y-8">
+            <!-- MSc in Artificial Intelligence -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 mb-8" data-aos="fade-up">
+              <div class="flex flex-col md:flex-row justify-between mb-4">
+                <div>
+                  <h3 class="text-xl font-semibold text-primary mb-2">Master of Science in Artificial Intelligence</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
+                    <a href="https://www.fau.eu/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors">
+                      Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)
+                    </a>
+                  </p>
+                  <p class="text-gray-600 dark:text-gray-400">Erlangen, Germany</p>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mt-2 md:mt-0">October 2022 - Present</p>
+              </div>
+              
+              <div class="space-y-2">
+                <p class="text-gray-700 dark:text-gray-300 font-medium">Key Courses:</p>
+                <div class="flex flex-wrap gap-2">
+                  {[
+                    'Artificial Intelligence-I & II',
+                    'Pattern Recognition',
+                    'Deep Learning',
+                    'Machine Learning Time Series',
+                    'Explainable ML',
+                    'Foundation of Linked Data',
+                    'Human-Computer Interaction'
+                  ].map(course => (
+                    <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                      {course}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Bachelor of Engineering -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800" data-aos="fade-up">
+              <div class="flex flex-col md:flex-row justify-between mb-4">
+                <div>
+                  <h3 class="text-xl font-semibold text-primary mb-2">Bachelor of Engineering in Information Science</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
+                    <a href="https://vtu.ac.in/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors">
+                      Visvesvaraya Technological University (VTU)</a>
+                  </p>
+                  <p class="text-gray-600 dark:text-gray-400">Belgaum, India</p>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mt-2 md:mt-0">August 2016 - August 2020</p>
+              </div>
+              
+              <div class="space-y-2">
+                <p class="text-gray-700 dark:text-gray-300 font-medium">Key Courses:</p>
+                <div class="flex flex-wrap gap-2">
+                  {[
+                    'Object Oriented Concepts',
+                    'Data Structure & Applications',
+                    'Design & Analysis of Algorithms',
+                    'DBMS',
+                    'Cloud Computing',
+                    'Big Data Analytics',
+                    'Machine Learning'
+                  ].map(course => (
+                    <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                      {course}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications Section -->
+      <section id="certifications" class="py-16 sm:py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Certifications</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Udacity Deep Learning Certification -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 hover:scale-105 transition-all duration-300" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    <a href="https://www.udacity.com/certificate/MFM3GSJH" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">
+                      Deep Learning Nanodegree
+                    </a>
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400">Udacity</p>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {['Neural Networks', 'Deep Learning','Model Evaluation','Model Optimization','Hyperparameter Tuning'].map(skill => (
+                  <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+              <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Issued: April 25, 2020
+              </div>
+            </div>
+
+            <!-- DataCamp Data Engineering Certification -->
+            <div class="bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 hover:scale-105 transition-all duration-300" data-aos="fade-up">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-green-500 to-green-600">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    <a href="https://www.datacamp.com/statement-of-accomplishment/track/7717895575ead0c4a8fcee7345851afa8db96603?raw=1" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">
+                      Data Engineering Certification
+                    </a>
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400">DataCamp</p>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {['Python', 'Git', 'ETL', 'Apache Airflow'].map(skill => (
+                  <span class="px-4 py-1.5 bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-[#2A2A2A] transition-colors">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+              <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Issued: March 03, 2020
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="hidden min-h-screen">
+      <section class="py-16 sm:py-20 md:py-24 flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Get in Touch</h2>
+          
+          <!-- Contact Form Card -->
+          <div class="max-w-3xl mx-auto bg-white dark:bg-[#1A1A1A] rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 hover:scale-[1.02] transition-all duration-300" data-aos="fade-up">
+            <form id="contactForm" class="space-y-4 sm:space-y-6">
+              <div>
+                <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Name *</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  required 
+                  minlength="2"
+                  pattern="[A-Za-z\s]+"
+                  title="Please enter a valid name (only letters and spaces allowed)"
+                  class="w-full p-3 rounded-lg bg-gray-50 dark:bg-[#222222] text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" 
+                />
+                <span class="text-red-500 text-sm hidden" id="nameError"></span>
+              </div>
+              <div>
+                <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Email *</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required 
+                  class="w-full p-3 rounded-lg bg-gray-50 dark:bg-[#222222] text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" 
+                />
+                <span class="text-red-500 text-sm hidden" id="emailError"></span>
+              </div>
+              <div>
+                <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2">Message *</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="4" 
+                  required 
+                  minlength="10"
+                  class="w-full p-3 rounded-lg bg-gray-50 dark:bg-[#222222] text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                ></textarea>
+                <span class="text-red-500 text-sm hidden" id="messageError"></span>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-4 justify-end">
+                <button 
+                  type="submit" 
+                  id="submitBtn"
+                  class="bg-primary text-white px-8 py-3 rounded-full hover:bg-blue-600 transition-all duration-300 font-medium"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+  <script>
+  // Navigation handling
+  document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('nav a');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const sections = {
+      home: document.getElementById('home'),
+      about: document.getElementById('about'),
+      contact: document.getElementById('contact')
+    };
+
+    function showSection(sectionId: string) {
+      // Prevent default scroll behavior
+      event?.preventDefault();
+      
+      // Hide all sections first
+      Object.values(sections).forEach(section => {
+        if (section) {
+          section.classList.add('hidden');
+          section.setAttribute('aria-hidden', 'true');
+        }
+      });
+
+      // Show target section
+      const targetSection = sections[sectionId as keyof typeof sections];
+      if (targetSection) {
+        targetSection.classList.remove('hidden');
+        targetSection.setAttribute('aria-hidden', 'false');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Update URL without page reload
+      history.pushState(null, '', `#${sectionId}`);
+
+      // Close mobile menu immediately
+      if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
+      }
+    }
+
+    // Handle navigation clicks
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href')?.replace('#', '') || 'home';
+        
+        // Update active link styling
+        navLinks.forEach(l => l.classList.remove('text-primary', 'active'));
+        link.classList.add('text-primary', 'active');
+        
+        showSection(targetId);
+      });
+    });
+
+    // Handle direct URL access with hash
+    window.addEventListener('load', () => {
+      const hash = window.location.hash.replace('#', '') || 'home';
+      showSection(hash);
+      
+      // Update active link
+      const activeLink = document.querySelector(`nav a[href="#${hash}"]`);
+      if (activeLink) {
+        navLinks.forEach(l => l.classList.remove('text-primary', 'active'));
+        activeLink.classList.add('text-primary', 'active');
+      }
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash.replace('#', '') || 'home';
+      showSection(hash);
+      
+      // Update active link
+      const activeLink = document.querySelector(`nav a[href="#${hash}"]`);
+      if (activeLink) {
+        navLinks.forEach(l => l.classList.remove('text-primary', 'active'));
+        activeLink.classList.add('text-primary', 'active');
+      }
+    });
+
+    // Show initial section based on URL or default to home
+    const initialHash = window.location.hash.replace('#', '') || 'home';
+    showSection(initialHash);
+  });
+  </script>
+
+<!-- Update Navbar -->
+<nav class="fixed top-0 left-0 right-0 z-[100]"> <!-- Increased z-index to 100 -->
+  <!-- ... existing navbar content ... -->
+</nav>
+
+<!-- Move EmailJS CDN to the top -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<!-- Initialize EmailJS -->
+<script define:vars={{ EMAILJS_PUBLIC_KEY }}>
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+</script>
+
+<!-- Form handling script -->
+<script define:vars={{ EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+    
+    if (form) {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        
+        // Reset error messages
+        document.querySelectorAll('.text-red-500').forEach(el => el.classList.add('hidden'));
+        
+        // Get form data
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        // Basic validation
+        if (!name || !email || !message) return;
+
+        // Disable submit button while processing
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        try {
+          const templateParams = {
+            from_name: name,
+            to_name: 'Diganto Deb Barma',
+            from_email: email,
+            message: message,
+            reply_to: email
+          };
+
+          await emailjs.send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            templateParams
+          );
+
+          // Show success message
+          successMessage.classList.remove('hidden');
+          successMessage.classList.remove('translate-y-full', 'opacity-0');
+          
+          // Hide success message after 3 seconds
+          setTimeout(() => {
+            successMessage.classList.add('translate-y-full', 'opacity-0');
+            setTimeout(() => {
+              successMessage.classList.add('hidden');
+            }, 500);
+          }, 3000);
+
+          // Reset form
+          form.reset();
+        } catch (error) {
+          console.error('Error details:', error);
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        }
+      });
+    }
+  });
+</script>
+
+<!-- Add a success message div -->
+<div id="successMessage" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-500 hidden">
+  Message sent successfully!
+</div>
+
+<!-- Update the bullet point styles for better alignment -->
+<style>
+  .bullet-list li {
+    @apply flex items-start gap-3;
+  }
+
+  .bullet-list .bullet-point {
+    @apply text-primary mt-1;
+  }
+
+  .bullet-list .bullet-text {
+    @apply text-gray-700 dark:text-gray-300 leading-normal;
+  }
+</style>
+
