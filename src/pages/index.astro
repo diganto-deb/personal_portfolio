@@ -1286,16 +1286,17 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
   <!-- ... existing navbar content ... -->
 </nav>
 
-<!-- Move EmailJS CDN to the top -->
+<!-- Update EmailJS initialization -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-<!-- Initialize EmailJS -->
 <script define:vars={{ EMAILJS_PUBLIC_KEY }}>
-  emailjs.init(EMAILJS_PUBLIC_KEY);
+  (function() {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  })();
 </script>
 
-<!-- Form handling script -->
-<script define:vars={{ EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID }}>
+<!-- Update form handling script -->
+<script define:vars={{ EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY }}>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm');
     const successMessage = document.getElementById('successMessage');
@@ -1329,28 +1330,34 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
             reply_to: email
           };
 
-          await emailjs.send(
+          const response = await emailjs.send(
             EMAILJS_SERVICE_ID,
             EMAILJS_TEMPLATE_ID,
-            templateParams
+            templateParams,
+            EMAILJS_PUBLIC_KEY
           );
 
-          // Show success message
-          successMessage.classList.remove('hidden');
-          successMessage.classList.remove('translate-y-full', 'opacity-0');
-          
-          // Hide success message after 3 seconds
-          setTimeout(() => {
-            successMessage.classList.add('translate-y-full', 'opacity-0');
+          if (response.status === 200) {
+            // Show success message
+            successMessage.classList.remove('hidden');
+            successMessage.classList.remove('translate-y-full', 'opacity-0');
+            
+            // Hide success message after 3 seconds
             setTimeout(() => {
-              successMessage.classList.add('hidden');
-            }, 500);
-          }, 3000);
+              successMessage.classList.add('translate-y-full', 'opacity-0');
+              setTimeout(() => {
+                successMessage.classList.add('hidden');
+              }, 500);
+            }, 3000);
 
-          // Reset form
-          form.reset();
+            // Reset form
+            form.reset();
+          } else {
+            throw new Error('Failed to send message');
+          }
         } catch (error) {
           console.error('Error details:', error);
+          alert('Failed to send message. Please try again later.');
         } finally {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Send Message';
