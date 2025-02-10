@@ -1258,7 +1258,7 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
   <script>
   // Navigation handling
   document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('nav a');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]'); // Only select hash links
     const mobileMenu = document.getElementById('mobile-menu');
     const sections = {
       home: document.getElementById('home'),
@@ -1267,39 +1267,41 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
     };
 
     function showSection(sectionId: string) {
-      // Prevent default scroll behavior
-      event?.preventDefault();
-      
-      // Hide all sections first
-      Object.values(sections).forEach(section => {
-        if (section) {
-          section.classList.add('hidden');
-          section.setAttribute('aria-hidden', 'true');
+      // Only handle section navigation for internal links
+      if (sectionId.startsWith('#')) {
+        event?.preventDefault();
+        
+        // Hide all sections first
+        Object.values(sections).forEach(section => {
+          if (section) {
+            section.classList.add('hidden');
+            section.setAttribute('aria-hidden', 'true');
+          }
+        });
+
+        // Show target section
+        const targetSection = sections[sectionId.replace('#', '') as keyof typeof sections];
+        if (targetSection) {
+          targetSection.classList.remove('hidden');
+          targetSection.setAttribute('aria-hidden', 'false');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-      });
 
-      // Show target section
-      const targetSection = sections[sectionId as keyof typeof sections];
-      if (targetSection) {
-        targetSection.classList.remove('hidden');
-        targetSection.setAttribute('aria-hidden', 'false');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+        // Update URL without page reload
+        history.pushState(null, '', sectionId);
 
-      // Update URL without page reload
-      history.pushState(null, '', `#${sectionId}`);
-
-      // Close mobile menu immediately
-      if (mobileMenu) {
-        mobileMenu.classList.add('hidden');
+        // Close mobile menu immediately
+        if (mobileMenu) {
+          mobileMenu.classList.add('hidden');
+        }
       }
     }
 
-    // Handle navigation clicks
+    // Handle navigation clicks only for internal links
     navLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        const targetId = link.getAttribute('href')?.replace('#', '') || 'home';
+        const targetId = link.getAttribute('href') || '#home';
         
         // Update active link styling
         navLinks.forEach(l => l.classList.remove('text-primary', 'active'));
@@ -1309,35 +1311,7 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
       });
     });
 
-    // Handle direct URL access with hash
-    window.addEventListener('load', () => {
-      const hash = window.location.hash.replace('#', '') || 'home';
-      showSection(hash);
-      
-      // Update active link
-      const activeLink = document.querySelector(`nav a[href="#${hash}"]`);
-      if (activeLink) {
-        navLinks.forEach(l => l.classList.remove('text-primary', 'active'));
-        activeLink.classList.add('text-primary', 'active');
-      }
-    });
-
-    // Handle browser back/forward buttons
-    window.addEventListener('popstate', () => {
-      const hash = window.location.hash.replace('#', '') || 'home';
-      showSection(hash);
-      
-      // Update active link
-      const activeLink = document.querySelector(`nav a[href="#${hash}"]`);
-      if (activeLink) {
-        navLinks.forEach(l => l.classList.remove('text-primary', 'active'));
-        activeLink.classList.add('text-primary', 'active');
-      }
-    });
-
-    // Show initial section based on URL or default to home
-    const initialHash = window.location.hash.replace('#', '') || 'home';
-    showSection(initialHash);
+    // Rest of the existing code...
   });
   </script>
 

@@ -18,7 +18,11 @@ const navItems = [
 <header class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-[#111111]/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
   <nav class="container mx-auto px-4 h-16 flex items-center justify-between">
     <!-- Logo/Name - Far Left -->
-    <a href="#" class="text-xl font-bold text-primary hover:text-blue-600 transition-colors">
+    <a 
+      href="#home" 
+      class="text-xl font-bold text-primary hover:text-blue-600 transition-colors nav-link"
+      data-section="home"
+    >
       Diganto Deb Barma
     </a>
 
@@ -117,6 +121,12 @@ const navItems = [
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
   const themeToggle = document.getElementById('theme-toggle');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  // Add nav-link class to navigation menu items
+  document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+    link.classList.add('nav-link');
+  });
 
   // Mobile menu toggle
   mobileMenuButton?.addEventListener('click', () => {
